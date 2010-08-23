@@ -1,0 +1,12 @@
+1. Read number using the appuifw
+2. if number is mine or yours or shehzads or someone we are interested in, put an invalid note.
+3. else, show a menu of options to select the sms pattern
+	1. Repeat same text.
+	2. A-Z
+	3. ?
+	4. ?
+4. read choice
+5. read count
+6. start flooding.
+
+We can write functions for each of the options. 
