@@ -23,12 +23,15 @@ def select():
     index = appuifw.popup_menu(options, u"Templates:")
     return index	
 
-def 1ton(num):
+def rptmsg(num):
 	import messaging
 	import appuifw as ui
-	info = ui.query(u'Count:' )
-	for i in range(0,info):
-	   messaging.sms_send(num,str(i+1))
+
+	info = ui.query( u'Count:' )
+	msg=ui.query(u'Message:','text',u'this is a text message')
+	for i in range(0,int(info[0])):
+	  messaging.sms_send(num,msg)
+
 	   
 	  
   
@@ -55,9 +58,10 @@ def a2z(num):
 	   al=chr(ord(al)+1)
 	   msg = msg+al
 	  
-def 1ton(num):
+def oneton(num):
 	import messaging
 	import appuifw as ui
 	info = ui.query(u'Count:' )
 	for i in range(0,info):
 	   messaging.sms_send(num,str(i+1))
+	   
