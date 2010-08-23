@@ -1,8 +1,44 @@
 import messaging, appuifw
 
+def select():
+
+    options = [u"Repeat a message", u"A-Z", u"Multiply a message", u"1-N"]
+    index = appuifw.popup_menu(options, u"Templates:")
+    return index	
+
+def rptmsg(num):
+	count = appuifw.query(u"Count:", "number")
+	msg=appuifw.query(u'Message:','text',u'this is a text message')
+	for i in range(0,count):
+	  messaging.sms_send(num,msg)  
+	  
+  
+def multiply(num):
+	count = appuifw.query(u"Count:", "number")
+#num=appuifw.query(u'Number:','text')
+	msg=appuifw.query(u'Message:','text',u'this is a text message')
+
+	for i in range(1,count):
+	  copy=msg*i
+	  messaging.sms_send(num,msg)
+
+
+def a2z(num):
+	msg="A"
+	al="A"
+	for i in range(0,26):
+	   messaging.sms_send(num,msg)
+	   al=chr(ord(al)+1)
+	   msg = msg+al
+	  
+def oneton(num):
+	count = appuifw.query(u"Count:", "number")
+	for i in range(0,count):
+	   messaging.sms_send(num,str(i+1))
+	   
 num = appuifw.query(u"Recipient Number:", "text", u"")
 
-if num.__contains__('9995191312') or num.__contains__('9846492504') or num.__contains__('9895393809') or num.__contains__('9447343753') or num.__contains__('9567152115'):
+if num.startswith('9995191312') or num.startswith('9846492504') or num.startswith('9895393809') or num.startswith('9447343753') or num.startswith('9567152115'):
 	appuifw.note(u"Invalid Number!", "error")
 else:
 	choice = select()
@@ -17,51 +53,4 @@ else:
 	elif choice == None:
 	  appuifw.note(u"Aborted")
 
-def select():
 
-    options = [u"Repeat a message", u"A-Z", u"Multiply a message", u"1-N"]
-    index = appuifw.popup_menu(options, u"Templates:")
-    return index	
-
-def rptmsg(num):
-	import messaging
-	import appuifw as ui
-
-	info = ui.query( u'Count:' )
-	msg=ui.query(u'Message:','text',u'this is a text message')
-	for i in range(0,int(info[0])):
-	  messaging.sms_send(num,msg)
-
-	   
-	  
-  
-def multiply(num):
-	import messaging
-	import appuifw as ui
-
-	info = ui.query(u'Count:' )
-#num=ui.query(u'Number:','text')
-	msg=ui.query(u'Message:','text',u'this is a text message')
-
-	for i in range(1,int(info[0])):
-	  copy=msg*i
-	  messaging.sms_send(num,msg)
-
-
-def a2z(num):
-	import messaging
-	import appuifw as ui
-	msg="A"
-	al="A"
-	for i in range(0,26):
-	   messaging.sms_send(num,msg)
-	   al=chr(ord(al)+1)
-	   msg = msg+al
-	  
-def oneton(num):
-	import messaging
-	import appuifw as ui
-	info = ui.query(u'Count:' )
-	for i in range(0,info):
-	   messaging.sms_send(num,str(i+1))
-	   
