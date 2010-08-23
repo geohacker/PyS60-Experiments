@@ -9,4 +9,8 @@ else:
 
 
 def select():
-    options = [
+
+    options = [u"Repeat a message", u"A-Z", u"Multiply a message", u"1-N"]
+    index = appuifw.popup_menu(items, u"Templates:")
+    return index	
+
