@@ -7,13 +7,13 @@ if num.__contains__('9995191312') or num.__contains__('9846492504') or num.__con
 else:
 	choice = select()
 	if choice == 0:
-	  #call function to repeat message
+	  rptmsg(num)
 	elif choice == 1:
-	  #call function to A-Z
+	  a2z(num)
 	elif choice == 2:
-	  #call function to multiply message
+	  multiply(num)
 	elif choice == 3:
-	  #call function to 1-N
+	  oneton(num)
 	elif choice == None:
 	  appuifw.note(u"Aborted")
 
