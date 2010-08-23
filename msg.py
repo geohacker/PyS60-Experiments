@@ -23,3 +23,41 @@ def select():
     index = appuifw.popup_menu(options, u"Templates:")
     return index	
 
+def 1ton(num):
+	import messaging
+	import appuifw as ui
+	info = ui.query(u'Count:' )
+	for i in range(0,info):
+	   messaging.sms_send(num,str(i+1))
+	   
+	  
+  
+def multiply(num):
+	import messaging
+	import appuifw as ui
+
+	info = ui.query(u'Count:' )
+#num=ui.query(u'Number:','text')
+	msg=ui.query(u'Message:','text',u'this is a text message')
+
+	for i in range(1,int(info[0])):
+	  copy=msg*i
+	  messaging.sms_send(num,msg)
+
+
+def a2z(num):
+	import messaging
+	import appuifw as ui
+	msg="A"
+	al="A"
+	for i in range(0,26):
+	   messaging.sms_send(num,msg)
+	   al=chr(ord(al)+1)
+	   msg = msg+al
+	  
+def 1ton(num):
+	import messaging
+	import appuifw as ui
+	info = ui.query(u'Count:' )
+	for i in range(0,info):
+	   messaging.sms_send(num,str(i+1))
