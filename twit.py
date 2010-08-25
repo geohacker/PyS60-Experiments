@@ -1,5 +1,6 @@
 import sys
 import appuifw
+#you need to have simplejson together with decoder, encoder modules.
 sys.path.append('e:\Python\libs')
 import urllib
 import simplejson as json
@@ -41,7 +42,7 @@ class TwitterApi(object):
         return json.loads(d)
 
 if __name__=="__main__":
-	app = TwitterApi("geohacker","ohmyGODubuntu")
+	app = TwitterApi("username","password")
 	stat = appuifw.query(u'Whats happening?','text',u'')
 	app.update(stat)
 	appuifw.note(u"Status Updated", "conf")
