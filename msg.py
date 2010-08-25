@@ -1,4 +1,6 @@
-import messaging, appuifw
+# SYMBIAN_UID = 0x01000020
+import messaging
+import appuifw
 
 def select():
 
