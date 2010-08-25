@@ -1,9 +1,19 @@
+#PyS60-Experiments by geohacker
+#Simple twitter app to *update* status.
+
 import sys
 import appuifw
+
+
 #you need to have simplejson together with decoder, encoder modules.
+#http://wordmobi.googlecode.com/files/simplejson_2.0.8_s60.zip
+#Copy it to a comfortable location and import the path as below.
+
 sys.path.append('e:\Python\libs')
 import urllib
 import simplejson as json
+
+#Avoids urllib prompting for username and password.
 
 class _FancyURLopener(urllib.FancyURLopener):
 
@@ -11,13 +21,14 @@ class _FancyURLopener(urllib.FancyURLopener):
         urllib.FancyURLopener.__init__(self)
         self.usr = usr
         self.pwd = pwd
- 
+
+#required. as to handle the prompt produced by http.
     def prompt_user_passwd(self, host, realm):
         return (self.usr,self.pwd)
 
+#twitter function to update
+
 class TwitterApi(object):
-    """ Twitter API basic class
-    """
     def __init__(self, tw_usr, tw_pwd):
         self._tw_usr, self._tw_pwd = tw_usr, tw_pwd
  
